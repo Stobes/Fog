@@ -11,6 +11,8 @@
     <jsp:body>
         <div style="margin-top: 5em;">
             <form name="login" action="${pageContext.request.contextPath}/fc/registercommand" method="POST">
+                <h1> Ny bruger </h1>
+                <br>
                 <div class="row mb-3">
                     <label class="col-sm-1 col-form-label" for="email">Email</label>
                     <div class="col-sm-4">

@@ -51,9 +51,9 @@
                 href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
             </c:if>
             <c:if test="${sessionScope.user == null }">
-                <a type="button" class="btn btn-sm  btn-outline-light"
+                <a type="button" class="btn btn-sm"
                    href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
-                <a type="button" class="btn btn-sm  btn-outline-light"
+                <a type="button" class="btn btn-sm"
                    href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
             </c:if>
     </div>
