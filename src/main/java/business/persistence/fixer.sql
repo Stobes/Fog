@@ -1,20 +1,32 @@
-CREATE DATABASE  IF NOT EXISTS FOG_Carport_test;
+USE fog_Carport;
 
-USE startcode;
-
-DROP TABLE IF EXISTS users;
-CREATE TABLE users (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  email varchar(90) NOT NULL,
-  password varchar(45) NOT NULL,
-  role varchar(20) NOT NULL DEFAULT 'customer',
-  PRIMARY KEY (id),
-  UNIQUE KEY email_UNIQUE (email)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-LOCK TABLES users WRITE;
-INSERT INTO users VALUES 
-(1,'barbie@world.dk','jensen','customer'),
-(2,'ken@world.com','jensen','customer'),
-(3,'robin@gotham.com','batman','employee');
-UNLOCK TABLES;
+INSERT INTO material (id, material_description, length, amount, unit, help_description) VALUES
+(1, '25x200 mm. trykimp. bræt', 300, 4, 'styk', 'understernsbrædder til for -og bag-ende'),
+(2, '25x200 mm. trykimp. bræt', 540, 4, 'styk', 'understernsbrædder til siderne'),
+(3, '25x125 mm. trykimp. bræt', 360, 2, 'styk', 'oversternsbrædder til for-enden'),
+(4, '25x125 mm. trykimp. bræt', 540, 4, 'styk', 'oversternsbrædder til siderne'),
+(5, '38xd73 mm. lægte ubh.', 420, 1, 'styk', 'til z på bagside af dør'),
+(6, '45x95 mm. reglar ub.', 270, 12, 'styk', 'løsholter til skurgavle'),
+(7, '45x95 mm. reglar ub.', 240, 4, 'styk', 'løsholter til skursider'),
+(8, '45x195 mm. spærtræ ubh.', 600, 2, 'styk', 'emme i sider, sadles ned i stolper'),
+(9, '45x195 mm. spærtræ ubh.', 480, 1, 'styk', 'remme i sider, sadles ned i stolper (skurdel, deles)'),
+(10, '45x195 mm. spærtræ ubh.', 600, 15, 'styk', 'spær, monteres på rem'),
+(11, '97x97 mm. trykimp. stolpe', 300, 11, 'styk', 'stopler nedgraves 90 cm. i jord'),
+(12, '19x100 mm. trykimp. bræt', 210, 200, 'styk', 'til beklædning af skur 1 på 2'),
+(13, '19x100 mm. trykimp. bræt', 540, 4, 'styk', 'vandbræt på stern i sider'),
+(14, '19x100 mm. trykimp. bræt', 360, 2, 'styk', 'vandbræt på stern i for-ende'),
+(15, 'plastmo ecolite blåtonet', 600, 6, 'styk', 'tagplader monteres på spær'),
+(16, 'plastmo ecolite blåtonet', 360, 6, 'styk', 'tagplader monteres på spær'),
+(17, 'plastmo bundskruer 200 stk.', 0, 3, 'pakker', 'skruer til tagplader'),
+(18, 'hulbånd 1x20 mm. 10mtr.', 0, 2, 'ruller', 'til vindkryds på spær'),
+(19, 'universal 190 mm. højre', 0, 15, 'styk', 'til montering af spær på rem'),
+(20, 'universal 190 mm. venstre', 0, 15, 'styk', 'til montering af spær på rem'),
+(21, '4,5x60 mm. skruer 200 stk.', 0, 1, 'pakker', 'til montering af stern og vandbræt'),
+(22, '4x50 mm. beslagskruer 200 stk.', 0, 3, 'pakker', 'til montering af universalbeslag + hulbånd'),
+(23, 'bræddebolt 10x120 mm.', 0, 18, 'styk', 'til montering af rem på stolper'),
+(24, 'firkantsskiver 40x40x11 mm.', 0, 12, 'styk', 'til montering af rem på stolper'),
+(25, '4,5x70 mm. skruer 400 stk.', 0, 2, 'pakker', 'til montering af yderste beklædning'),
+(26, '4,5x50 mm. skruer 300 stk.', 0, 2, 'pakker', 'til montering af inderste beklædning'),
+(27, 'stalddørsgreb 50x75', 0, 1, 'sæt', 'til lås på dør i skur'),
+(28, 't-hængsel 390 mm.', 0, 2, 'styk', 'til skurdør'),
+(29, 'vinkelbeslag 35', 0, 32, 'styk', 'til montering af løsholter i skur');

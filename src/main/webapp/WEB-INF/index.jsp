@@ -26,15 +26,15 @@
                         <div class="form-group">
                             <h3> Bestil Carport </h3>
                             <label for="length">Længde i cm: </label>
-                            <input id="length" name="length" type="text" class="form-control"/>
+                            <input id="length" name="length" type="text" class="form-control mb-3" placeholder="Indtast ønskede længde"/>
                         </div>
                         <div class="form-group">
                             <label for="width">Bredde i cm: </label>
-                            <input id="width" name="width" type="text" class="form-control"/>
+                            <input id="width" name="width" type="text" class="form-control mb-3" placeholder="Indtast ønskede bredde"/>
                         </div>
                         <div class="form-group">
                             <label for="height">Højde i cm: </label>
-                            <input id="height" name="height" type="text" class="form-control"/>
+                            <input id="height" name="height" type="text" class="form-control mb-3" placeholder="Indtast ønskede højde"/>
                         </div>
                         <div>
                             <input type="checkbox" id="shed" name="shed" value="shed"> Vælg skur</input>
@@ -43,19 +43,19 @@
                         <h3> Kontaktinformation </h3>
                         <div class="form-group">
                             <label for="email">Email adresse: </label>
-                            <input id="email" name="email" type="text" class="form-control"/>
+                            <input id="email" name="email" type="text" class="form-control mb-3" placeholder="Indtast din e-mail"/>
                         </div>
                         <div class="form-group">
                             <label for="name">Navn: </label>
-                            <input id="name" name="name" type="text" class="form-control"/>
+                            <input id="name" name="name" type="text" class="form-control mb-3" placeholder="Indtast dit navn"/>
                         </div>
                         <div class="form-group">
                             <label for="adress">Adresse: </label>
-                            <input id="adress" name="adress" type="text" class="form-control"/>
+                            <input id="adress" name="adress" type="text" class="form-control mb-3" placeholder="Indtast hjemmeadresse"/>
                         </div>
                         <div class="form-group">
                             <label for="zipcode">Postnummer: </label> <br>
-                            <input id="zipcode" name="zipcode" type="text" class="form-control"/>
+                            <input id="zipcode" name="zipcode" type="text" class="form-control" placeholder="Indtast postnummer"/>
                         </div>
                         <c:if test="${requestScope.error != null}">
                         <p style="color: red;">
