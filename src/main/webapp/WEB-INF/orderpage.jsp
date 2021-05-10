@@ -23,7 +23,11 @@
                     <p style="padding: 2px 6px 4px 6px; color:#555555; background-color: #eeeeee; border: #dddddd 2px solid"> Kundeoplysninger
                         <br>
                         {Skal hente intastede oplysninger og vise dem her.}
-                        </br>
+                        dine ønskede mål er:
+                        højde:  ${requestScope.height} cm
+                        bredte: ${requestScope.width} cm
+                        længde: ${requestScope.length} cm
+                         </br>
                     </p>
                 </div>
                 <div class="col-sm-4">

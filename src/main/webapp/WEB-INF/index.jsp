@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                    <form method="post" action="${pageContext.request.contextPath}/fc/orderpage">
+                    <form method="post" action="${pageContext.request.contextPath}/fc/BestilOrderCommand">
                         <div class="form-group">
                             <h3> Bestil Carport </h3>
                             <label for="length">Længde i cm: </label>
