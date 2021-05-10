@@ -13,6 +13,49 @@
         <h1>Hello ${sessionScope.email} </h1>
         You are now logged in as a Customer of our wonderful site.
         Role: ${sessionScope.role}
+
+        <div>
+            <div style="margin-top: 3em;margin-bottom: 3em; text-align: center">
+                <h1> Velkommen til Fog Quickbyg </h1>
+                <h2> Vi gør dine carport drømme til virkelighed </h2>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <form method="post" action="${pageContext.request.contextPath}/fc/OrderCommand">
+                    <div class="form-group">
+                        <h3> Bestil Carport </h3>
+                        <label for="length">Længde i cm: </label>
+                        <input id="length" name="length" type="text" class="form-control mb-3" placeholder="Indtast ønskede længde"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="width">Bredde i cm: </label>
+                        <input id="width" name="width" type="text" class="form-control mb-3" placeholder="Indtast ønskede bredde"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Højde i cm: </label>
+                        <input id="height" name="height" type="text" class="form-control mb-3" placeholder="Indtast ønskede højde"/>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="shed" name="shed" value="shed">Vælg skur</input>
+
+                        <c:if test="${requestScope.error != null}">
+                        <p style="color: red;">
+                                ${requestScope.error}
+                        </p>
+                        </c:if>
+                        <br>
+                        <button type="submit" class="btn-primary px-2"> Bestil tilbud </button>
+                    </div>
+                </form>
+                <br>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+        </div>
     </jsp:body>
 
 </t:genericpage>

@@ -35,20 +35,6 @@
                         <c:if test="${requestScope.}"
 
                     </p>
-                    <h2> Kontaktinformation
-                    <br>
-                    </h2>
-                    <p>
-                        E-mail: ${requestScope.email}
-                        <br>
-                        Navn: ${requestScope.name}
-                        <br>
-                        Adresse: ${requestScope.address}
-                        <br>
-                        Postnummer: ${requestScope.zipcode}
-                        <br>
-
-                    </p>
                 </div>
                 <div class="col-sm-4">
 
