@@ -38,6 +38,7 @@ public class OrderCommand extends CommandUnprotectedPage {
         request.setAttribute("name", name);
         request.setAttribute("address", address);
         request.setAttribute("zipcode", zipcode);
+        
 
         return pageToShow;
     }
