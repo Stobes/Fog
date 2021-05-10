@@ -19,15 +19,35 @@
                 <h1> Ordreoversigt </h1>
             </div>
             <div class="row">
-                <div class="col-sm-4">
-                    <p style="padding: 2px 6px 4px 6px; color:#555555; background-color: #eeeeee; border: #dddddd 2px solid"> Kundeoplysninger
+                <div class="col-sm-4" style="padding: 2px 6px 4px 6px; color:#555555; background-color: #eeeeee; border: #dddddd 2px solid">
+                    <h2 > Kundeoplysninger
                         <br>
-                        {Skal hente intastede oplysninger og vise dem her.}
-                        dine ønskede mål er:
-                        højde:  ${requestScope.height} cm
-                        bredte: ${requestScope.width} cm
-                        længde: ${requestScope.length} cm
+                    </h2>
+                    <p>
+                        Dine ønskede mål er:
+                        <br>
+                        Højde:  ${requestScope.height} cm
+                        <br>
+                        Bredde: ${requestScope.width} cm
+                        <br>
+                        Længde: ${requestScope.length} cm
                          </br>
+                        <c:if test="${requestScope.}"
+
+                    </p>
+                    <h2> Kontaktinformation
+                    <br>
+                    </h2>
+                    <p>
+                        E-mail: ${requestScope.email}
+                        <br>
+                        Navn: ${requestScope.name}
+                        <br>
+                        Adresse: ${requestScope.address}
+                        <br>
+                        Postnummer: ${requestScope.zipcode}
+                        <br>
+
                     </p>
                 </div>
                 <div class="col-sm-4">

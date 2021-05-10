@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                    <form method="post" action="${pageContext.request.contextPath}/fc/BestilOrderCommand">
+                    <form method="post" action="${pageContext.request.contextPath}/fc/OrderCommand">
                         <div class="form-group">
                             <h3> Bestil Carport </h3>
                             <label for="length">Længde i cm: </label>
@@ -37,7 +37,9 @@
                             <input id="height" name="height" type="text" class="form-control mb-3" placeholder="Indtast ønskede højde"/>
                         </div>
                         <div>
-                            <input type="checkbox" id="shed" name="shed" value="shed"> Vælg skur</input>
+                            <input type="checkbox" id="shed" name="shed" value="" onclick="showLabels()">Vælg skur
+                                <p id="text" style="display:none">du har vælge skur!</p>
+                            </input>
                         </div>
                         <br>
                         <h3> Kontaktinformation </h3>
