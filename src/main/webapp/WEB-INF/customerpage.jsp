@@ -10,9 +10,6 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a Customer of our wonderful site.
-        Role: ${sessionScope.role}
 
         <div>
             <div style="margin-top: 3em;margin-bottom: 3em; text-align: center">
@@ -22,7 +19,16 @@
 
         </div>
         <div class="row">
-            <div class="col-sm-4"></div>
+            <div class="col-sm-4" style="padding: 2px 6px 4px 6px; color:#555555; background-color: #eeeeee; border: #dddddd 2px solid">
+                <h2>Hello ${sessionScope.email}
+                    <br>
+                </h2>
+                <p>
+                    You are now logged in as a Customer of our wonderful site.
+                    Role: ${sessionScope.role}
+                </p>
+            </div>
+
             <div class="col-sm-4">
                 <form method="post" action="${pageContext.request.contextPath}/fc/OrderCommand">
                     <div class="form-group">
@@ -52,7 +58,6 @@
                 </form>
                 <br>
             </div>
-            <div class="col-sm-4"></div>
         </div>
 
         </div>

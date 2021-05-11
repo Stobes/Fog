@@ -32,11 +32,21 @@
                         <br>
                         Længde: ${requestScope.length} cm
                          </br>
-<%--                        <c:if test="${requestScope.}"--%>
 
                     </p>
                 </div>
                 <div class="col-sm-4">
+                    <c:if test="${sessionScope.role == 'employee' }">
+                    <p style="font-size: larger">En medarbejder vil verificere din forespørgsel hurtigst muligt <br/><br/>
+                        Når din foresprøgsel er blevet godkendt, vil du få tilsendt et tilbud på mail</p>
+                    <p><a href="fc/employeepage">Employee Page</a>
+                        </c:if>
+
+                        <c:if test="${sessionScope.role == 'customer' }">
+                    <p style="font-size: larger">En medarbejder vil verificere din forespørgsel hurtigst muligt <br/><br/>
+                        Når din foresprøgsel er blevet godkendt, vil du få tilsendt et tilbud på mail</p>
+                    <p><a href="customerpage">Customer Page</a>
+                        </c:if>
 
 
                         <c:if test="${requestScope.error != null}">
@@ -50,17 +60,7 @@
             </div>
         </div>
         <br/>
-        <c:if test="${sessionScope.role == 'employee' }">
-            <p style="font-size: larger">En medarbejder vil verificere din forespørgsel hurtigst muligt <br/><br/>
-                Når din foresprøgsel er blevet godkendt, vil du få tilsendt et tilbud på mail</p>
-            <p><a href="fc/employeepage">Employee Page</a>
-        </c:if>
 
-        <c:if test="${sessionScope.role == 'customer' }">
-            <p style="font-size: larger">En medarbejder vil verificere din forespørgsel hurtigst muligt <br/><br/>
-                Når din foresprøgsel er blevet godkendt, vil du få tilsendt et tilbud på mail</p>
-            <p><a href="fc/customerpage">Customer Page</a>
-        </c:if>
 
         </div>
 
