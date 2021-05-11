@@ -1,8 +1,11 @@
 package business.persistence;
 
+import business.entities.OrderEntry;
+import business.entities.User;
 import business.exceptions.UserException;
 
 import java.sql.*;
+import java.util.List;
 
 public class OrderMapper {
 
@@ -12,6 +15,45 @@ public class OrderMapper {
         this.database = database;
     }
 
+
+    public List<OrderEntry> getAllOrderEntries() throws UserException {
+
+        try (Connection connection = database.connect())
+        {
+            String sql = "SELECT * FROM `fog_carport`.`order`;";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql))
+            {
+                ResultSet rs = ps.executeQuery();
+                if (rs.next())
+                {
+                    String role = rs.getString("role");
+                    int id = rs.getInt("id");
+                    int width = rs.getInt("width");
+                    int length = rs.getInt("length");
+                    int height = rs.getInt("height");
+                    String status = rs.getString("status");
+//                    int userId = rs.getInt("users_id");
+
+                    OrderEntry orderEntry = new OrderEntry(id, length, width, height, status);
+
+                    return orderEntry;
+                } else
+                {
+                    throw new UserException("Orders not found in database");
+                }
+            }
+            catch (SQLException ex)
+            {
+                throw new UserException(ex.getMessage());
+            }
+        }
+        catch (SQLException ex)
+        {
+            throw new UserException("Connection to database could not be established");
+        }
+
+    }
 
 
     public void insertOrder(int length, int height, int width, int users_id) throws UserException {
