@@ -4,14 +4,19 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         FOG Carport Admin page
+         List of Order Entries.
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        <P>You are now logged in as a EMPLOYEE of our FOG Carport site.</P>
+        This is a list of all Order requests:
 
-        <p><a href="${pageContext.request.contextPath}/fc/orderentries">Gå til visning af alle Order forespørgelser</a></p>
+        <table>
+            <thead><th>Id</th><th>Højde</th><th>Længde</th><th>Bredte</th></thead>
+            <tr><td></td><td></td><td></td><td></td></tr>
+
+        </table>
+
     </jsp:body>
 </t:genericpage>
