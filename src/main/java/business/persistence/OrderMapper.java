@@ -5,6 +5,7 @@ import business.entities.User;
 import business.exceptions.UserException;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderMapper {
@@ -18,6 +19,8 @@ public class OrderMapper {
 
     public List<OrderEntry> getAllOrderEntries() throws UserException {
 
+        List<OrderEntry> orderEntryList = new ArrayList<>();
+
         try (Connection connection = database.connect())
         {
             String sql = "SELECT * FROM `fog_carport`.`order`;";
@@ -25,7 +28,7 @@ public class OrderMapper {
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
                 ResultSet rs = ps.executeQuery();
-                if (rs.next())
+                while (rs.next())
                 {
                     String role = rs.getString("role");
                     int id = rs.getInt("id");
@@ -35,12 +38,8 @@ public class OrderMapper {
                     String status = rs.getString("status");
 //                    int userId = rs.getInt("users_id");
 
-                    OrderEntry orderEntry = new OrderEntry(id, length, width, height, status);
+                    orderEntryList.add(new OrderEntry(id, length, width, height, status));
 
-                    return orderEntry;
-                } else
-                {
-                    throw new UserException("Orders not found in database");
                 }
             }
             catch (SQLException ex)
@@ -53,6 +52,7 @@ public class OrderMapper {
             throw new UserException("Connection to database could not be established");
         }
 
+        return orderEntryList;
     }
 
 

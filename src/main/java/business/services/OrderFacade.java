@@ -5,6 +5,8 @@ import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
 
+import java.util.List;
+
 public class OrderFacade {
 
     private OrderMapper orderMapper;
@@ -17,7 +19,7 @@ public class OrderFacade {
         orderMapper.insertOrder(length, height, width, users_id);
     }
 
-    public OrderEntry getAllOrderEntries() throws UserException {
+    public List<OrderEntry> getAllOrderEntries() throws UserException {
 
         return orderMapper.getAllOrderEntries();
 
