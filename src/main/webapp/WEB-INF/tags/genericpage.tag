@@ -26,7 +26,7 @@
             <h2 class="text-white">FOG©</h2>
         </p>
     </div>
-    <nav class="my-2 my-md-0 me-md-3">
+    <nav class="my-2 my-md-0 me-md-3 text-white">
         <c:if test="${addHomeLink == null }">
             <a class="p-2 text-white" href="<%=request.getContextPath()%>">Home</a>
         </c:if>
@@ -35,7 +35,7 @@
         <a class="p-2 text-white" href="#">About</a>
     </nav>
 
-    <div>
+    <div class="text-white" style="padding-right: 15px">
 
         <c:if test="${sessionScope.user != null }">
             ${sessionScope.user.email}
@@ -44,10 +44,12 @@
         <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
         <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>
         <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
+    </div>
+    <div>
 
         <c:if test="${isNotLoginPage && isNotRegisterPage}">
             <c:if test="${sessionScope.user != null }">
-                <a type="button" class="btn btn-sm  btn-outline-light"
+                <a type="button" class="btn btn-sm"
                 href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
             </c:if>
             <c:if test="${sessionScope.user == null }">
