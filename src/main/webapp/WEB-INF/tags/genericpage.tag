@@ -30,10 +30,14 @@
         <c:if test="${addHomeLink == null }">
             <a class="p-2 text-white" href="<%=request.getContextPath()%>">Home</a>
         </c:if>
-        <a class="p-2 text-white" href="#">Orders</a>
-
+        <c:if test="${sessionScope.role == 'employee' }">
+            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/orderpage">Orders</a>
+        </c:if>
         <c:if test="${sessionScope.role == 'customer' }">
             <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/customerpage">Profile</a>
+        </c:if>
+        <c:if test="${sessionScope.role == 'employee' }">
+            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/employeepage">Profile</a>
         </c:if>
         <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/aboutPage">About</a>
     </nav>
