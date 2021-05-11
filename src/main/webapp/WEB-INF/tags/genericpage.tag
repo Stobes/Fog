@@ -31,8 +31,11 @@
             <a class="p-2 text-white" href="<%=request.getContextPath()%>">Home</a>
         </c:if>
         <a class="p-2 text-white" href="#">Orders</a>
-        <a class="p-2 text-white" href="#">Profile</a>
-        <a class="p-2 text-white" href="#">About</a>
+
+        <c:if test="${sessionScope.role == 'customer' }">
+            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/customerpage">Profile</a>
+        </c:if>
+        <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/aboutPage">About</a>
     </nav>
 
     <div class="text-white" style="padding-right: 15px">
@@ -44,8 +47,8 @@
         <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
         <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>
         <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
-    </div>
-    <div>
+
+
 
         <c:if test="${isNotLoginPage && isNotRegisterPage}">
             <c:if test="${sessionScope.user != null }">

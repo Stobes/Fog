@@ -19,7 +19,7 @@
                 <h2> Vi gør dine carport drømme til virkelighed </h2>
                 <p> Log venligst ind eller opret en bruger for at kunne bestille tilbud</p>
 
-            </div
+            </div>
 
 
         <c:if test="${sessionScope.role == 'employee' }">
