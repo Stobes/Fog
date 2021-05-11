@@ -25,7 +25,7 @@ public class OrderMapper {
                 ps.setInt(1, width);
                 ps.setInt(2, length);
                 ps.setInt(3, height);
-                ps.setString(4, "pending verification");
+                ps.setString(4, "pending");
                 ps.setInt(5, users_id);
                 ps.executeUpdate();
                 ResultSet ids = ps.getGeneratedKeys();
