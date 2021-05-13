@@ -13,9 +13,16 @@
         This is a list of all Order requests:
 
         <table>
-            <thead><th>Id</th><th>Højde</th><th>Længde</th><th>Bredte</th></thead>
-            <tr><td></td><td></td><td></td><td></td></tr>
-
+            <thead><th>Id</th><th>Højde</th><th>Længde</th><th>Bredte</th><th>Status</th></thead>
+            <c:forEach var="orderEntry" items="${requestScope.orderEntryList}">
+            <tr>
+                <td>${orderEntry.id}</td>
+                <td>${orderEntry.height}</td>
+                <td>${orderEntry.length}</td>
+                <td>${orderEntry.width}</td>
+                <td>${orderEntry.status}</td>
+            </tr>
+            </c:forEach>
         </table>
 
     </jsp:body>

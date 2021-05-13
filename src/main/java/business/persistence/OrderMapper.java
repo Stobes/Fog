@@ -30,7 +30,6 @@ public class OrderMapper {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next())
                 {
-                    String role = rs.getString("role");
                     int id = rs.getInt("id");
                     int width = rs.getInt("width");
                     int length = rs.getInt("length");

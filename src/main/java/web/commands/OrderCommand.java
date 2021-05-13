@@ -30,7 +30,7 @@ public class OrderCommand extends CommandProtectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
 
         HttpSession session = request.getSession();
-        int user_id = 1; //TODO: skal laves dynamisk ift, login
+        int user_id = 1;
 
         if (session.getAttribute("user") != null) {
             user = (User)session.getAttribute("user");
