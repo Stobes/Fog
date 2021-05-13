@@ -1,4 +1,5 @@
 package business.persistence;
+import business.entities.CarportItem;
 import business.exceptions.UserException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,9 +16,9 @@ public class MaterialMapper {
     }
 
 
-    public List<Material> getMaterials() throws UserException
+    public List<CarportItem> getMaterials() throws UserException
     {
-        List<Material> materialList = new ArrayList<>();
+        List<CarportItem> materialList = new ArrayList<>();
         try (Connection connection = database.connect())
         {
             String sql = "SELECT * FROM materials";

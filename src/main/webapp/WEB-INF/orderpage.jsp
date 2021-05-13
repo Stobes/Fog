@@ -35,6 +35,9 @@
 
                     </p>
                 </div>
+
+                Klik her for at se en <a href="${pageContext.request.contextPath}/fc/showSVG">tegning</a>
+
                 <div class="col-sm-4">
                     <c:if test="${sessionScope.role == 'employee' }">
                     <p style="font-size: larger">En medarbejder vil verificere din forespørgsel hurtigst muligt <br/><br/>
