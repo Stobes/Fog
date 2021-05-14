@@ -18,8 +18,8 @@ public class SVG {
             + "y=\"%d\" "
             + "preserveAspectRatio=\"xMinYMin\">";
 
-    private  String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke: black; fill: white\"/>";
-    private String lineTemplate = "Kode for linje";
+    private  String rectTemplate = "<rect x=\"%d\" y=\"%d\" width=\"%f\" height=\"%f\" style=\"stroke: black; fill: white\"/>";
+    private String lineTemplate = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" style=\"stroke:black; stroke-dasharray:5,5; fill: white\"/>";
 
     public SVG(int x, int y, String viewBox, int width, int height) {
         this.x = x;
