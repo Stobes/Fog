@@ -1,23 +1,32 @@
 package web.commands;
 
 import business.entities.User;
+import business.entities.*;
 import business.exceptions.UserException;
+import business.persistence.MaterialMapper;
+import business.services.MaterialFacade;
 import business.services.OrderFacade;
 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class OrderCommand extends CommandProtectedPage {
 
     private OrderFacade orderFacade;
+    private MaterialFacade materialFacade;
+    private CarportItemList carportItemList;
     private User user;
 
     public OrderCommand(String pageToShow, String role) {
         super(pageToShow, "customer");
         this.orderFacade = new OrderFacade(database);
+        this.materialFacade = new MaterialFacade(database);
+        this.carportItemList = new CarportItemList();
     }
 
 
@@ -56,11 +65,14 @@ public class OrderCommand extends CommandProtectedPage {
         request.setAttribute("height", height);
         request.setAttribute("width", width);
 
+        int orderId = orderFacade.insertOrder(length, height, width, user_id);
 
 
-            orderFacade.insertOrder(length, height, width, user_id);
+        List<Material> materialList = materialFacade.getAllMaterials();
+        List<CarportItem> _carportItemList = new ArrayList<>();
+        carportItemList.assembleList(length, width, height, materialList, _carportItemList);
 
-
+        orderFacade.insertOrderItem(_carportItemList, orderId);
 
         return pageToShow;
     }

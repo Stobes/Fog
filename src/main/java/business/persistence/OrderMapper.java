@@ -1,6 +1,8 @@
 package business.persistence;
 
+import business.entities.CarportItem;
 import business.entities.OrderEntry;
+
 import business.entities.User;
 import business.exceptions.UserException;
 
@@ -15,6 +17,41 @@ public class OrderMapper {
     public OrderMapper(Database database) {
         this.database = database;
     }
+
+    public int getOrderId() throws UserException {
+
+        int orderId = 0;
+
+        try (Connection connection = database.connect())
+        {
+            String sql = "SELECT MAX(id) FROM `fog_carport`.`order`;";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql))
+            {
+                ResultSet rs = ps.executeQuery();
+                while (rs.next())
+                {
+                    int id = rs.getInt(1);
+
+                    orderId = id;
+
+                }
+            }
+            catch (SQLException ex)
+            {
+                throw new UserException(ex.getMessage());
+            }
+        }
+        catch (SQLException ex)
+        {
+            throw new UserException("Connection to database could not be established");
+        }
+
+        return orderId;
+    }
+
+
+
 
 
     public List<OrderEntry> getAllOrderEntries() throws UserException {
@@ -55,7 +92,9 @@ public class OrderMapper {
     }
 
 
-    public void insertOrder(int length, int height, int width, int users_id) throws UserException {
+    public int insertOrder(int length, int height, int width, int users_id) throws UserException {
+
+        int orderId = 0;
 
         try (Connection connection = database.connect())
         {
@@ -73,6 +112,7 @@ public class OrderMapper {
                 ids.next();
                 int order_id = ids.getInt(1);
 
+                orderId = order_id;
             }
             catch (SQLException ex)
             {
@@ -83,6 +123,40 @@ public class OrderMapper {
         {
             throw new UserException(ex.getMessage());
         }
+        return orderId;
+    }
 
+    public void insertOrderItem(List<CarportItem> carportItemList, int orderId) throws UserException {
+
+        try (Connection connection = database.connect())
+        {
+            String sql = "INSERT INTO `fog_carport`.`order_item` (`amount`, `length`, `context_description`, `order_id`, `material_id`) VALUES (?, ?, ?, ?, ?);";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
+            {
+                for (CarportItem carportItem : carportItemList) {
+
+                    ps.setInt(1, carportItem.getAmount());
+                    ps.setInt(2, carportItem.getLength());
+                    ps.setString(3, carportItem.getContextDescription());
+                    ps.setInt(4, orderId);
+                    ps.setInt(5, carportItem.getMaterialId());
+                    ps.executeUpdate();
+                    ResultSet ids = ps.getGeneratedKeys();
+                    ids.next();
+                    int order_item_id = ids.getInt(1);
+
+                }
+
+            }
+            catch (SQLException ex)
+            {
+                throw new UserException(ex.getMessage());
+            }
+        }
+        catch (SQLException ex)
+        {
+            throw new UserException(ex.getMessage());
+        }
     }
 }

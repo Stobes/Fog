@@ -12,7 +12,7 @@ public class SVG {
     private int length;
 
 
-    private String templateHeader = "Insæt svg kode";
+    private String templateHeader = "";
 
     private String rectTemplate = "kode for rectangel";
     private String lineTemplate = "Kode for linje";
