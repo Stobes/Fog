@@ -6,29 +6,34 @@ public class SVG {
 
     private int x;
     private int y;
-    private String viewbox;
+    private String viewBox;
     private int width;
     private int height;
     private int length;
 
 
-    private String templateHeader = "Insæt svg kode";
+    private  String templateHeader = "<svg height=\"%d%%\" "
+            + "width =\"%d%%\"" + "viewBox=\"%s\" "
+            + "x=\"%d\" "
+            + "y=\"%d\" "
+            + "preserveAspectRatio=\"xMinYMin\">";
 
-    private String rectTemplate = "kode for rectangel";
+    private  String rectTemplate = "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke: black; fill: white\"/>";
     private String lineTemplate = "Kode for linje";
 
-    public SVG(int x, int y, String viewbox, int width, int height, int length) {
+    public SVG(int x, int y, String viewBox, int width, int height) {
         this.x = x;
         this.y = y;
-        this.viewbox = viewbox;
+        this.viewBox = viewBox;
         this.width = width;
         this.height = height;
-        this.length = length;
 
-        svg.append(String.format(templateHeader,height,width, viewbox, x, y));
+
+        svg.append(String.format(templateHeader,height,width, viewBox, x, y));
     }
 
-    public void addRect (int x, int y, int width, int height){
+    //Bruges til at lave spær
+    public void addRect (int x, int y, double width, double height){
     svg.append(String.format(rectTemplate,x,y,width,height));
     }
 

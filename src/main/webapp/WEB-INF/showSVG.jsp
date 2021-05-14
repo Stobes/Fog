@@ -13,9 +13,10 @@
     </jsp:attribute>
 
     <jsp:body>
+        <div>
         <p>Her indsættes en tegning:</p>
-       ${requestScope.SVG}
-
+            ${requestScope.SVG}
+        </div>
 
 
 
