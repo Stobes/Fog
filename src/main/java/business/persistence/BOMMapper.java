@@ -31,7 +31,8 @@ public class BOMMapper {
                     int amount = rs.getInt("amount");
                     String unit = rs.getString("unit");
                     String contextDescription = rs.getString("context_description");
-                    bomItemList.add(new BOMItem(materialDescription, length, amount, unit, contextDescription));
+                    int mPrice = rs.getInt(6);
+                    bomItemList.add(new BOMItem(materialDescription, length, amount, unit, contextDescription, mPrice));
                 }
 
             }

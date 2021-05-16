@@ -11,5 +11,15 @@ public class BOMList {
 
     public List<BOMItem> getBomItemList() { return bomItemList; }
 
+    public int getTotalPrice(List<BOMItem> bomItemList) {
+        int total = 0;
+
+        for (BOMItem bomItem: bomItemList) {
+            total += bomItem.getPrice() * (bomItem.getLength()/10) * bomItem.getAmount();
+        }
+
+        return total;
+    }
+
 
 }

@@ -7,13 +7,15 @@ public class BOMItem {
     private int amount;
     private String unit;
     private String contextDescription;
+    private int price;
 
-    public BOMItem(String materialDescription, int length, int amount, String unit, String contextDescription) {
+    public BOMItem(String materialDescription, int length, int amount, String unit, String contextDescription, int price) {
         this.materialDescription = materialDescription;
         this.length = length;
         this.amount = amount;
         this.unit = unit;
         this.contextDescription = contextDescription;
+        this.price = price;
     }
 
     public String getMaterialDescription() {
@@ -34,5 +36,9 @@ public class BOMItem {
 
     public String getContextDescription() {
         return contextDescription;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }

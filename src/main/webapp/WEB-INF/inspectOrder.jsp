@@ -33,7 +33,15 @@
                     <td>${BOMItem.contextDescription}</td>
                 </tr>
             </c:forEach>
+
+            <tr>
+                <th colspan="4" scope="row">Total</th>
+                <td>
+                    ${requestScope.total} kr.
+                </td>
+            </tr>
             </tbody>
+
         </table>
 
     </jsp:body>
