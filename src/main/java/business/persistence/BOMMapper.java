@@ -19,10 +19,7 @@ public class BOMMapper {
 
         try (Connection connection = database.connect())
         {
-            String sql = "SELECT material_description, order_item.length, order_item.amount, unit, context_description, `order`.id FROM material, order_item, `order`, users\n" +
-                    "WHERE material.id = order_item.material_id\n" +
-                    "AND order_item.order_id = order.id\n" +
-                    "AND `order`.users_id = users.id;";
+            String sql = "SELECT * FROM fog_carport.bom_view WHERE id = "+id+";";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
