@@ -94,6 +94,15 @@ public class CarportItemList extends CalcCarport{
                             result.getAmount(),
                             result.getContextDescription(),
                             material.getId()));
+                    break;
+
+                case 6:
+                    calcRoof(width, length, result);
+                    carportItemList.add(new CarportItem(
+                            result.getLength(),
+                            result.getAmount(),
+                            result.getContextDescription(),
+                            material.getId()));
 
             }
 

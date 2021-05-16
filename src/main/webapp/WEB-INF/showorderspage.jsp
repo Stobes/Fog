@@ -13,15 +13,24 @@
         This is a list of all Order requests:
 
         <table>
-            <thead><th>Id</th><th>Højde</th><th>Længde</th><th>Bredte</th><th>Status</th></thead>
+            <thead>
+            <th>Id</th>
+            <th>Højde</th>
+            <th>Længde</th>
+            <th>Bredte</th>
+            <th>Status</th>
+            </thead>
             <c:forEach var="orderEntry" items="${requestScope.orderEntryList}">
-            <tr>
-                <td>${orderEntry.id}</td>
-                <td>${orderEntry.height}</td>
-                <td>${orderEntry.length}</td>
-                <td>${orderEntry.width}</td>
-                <td>${orderEntry.status}</td>
-            </tr>
+                <tr>
+                    <form method="post" action="${pageContext.request.contextPath}/fc/inspectOrder">
+                        <td>${orderEntry.id}</td>
+                        <td>${orderEntry.height}</td>
+                        <td>${orderEntry.length}</td>
+                        <td>${orderEntry.width}</td>
+                        <td>${orderEntry.status}</td>
+                        <td><button name="Inspect Order" type="submit" value="${orderEntry.id}">Inspect Order</button></td>
+                    </form>
+                </tr>
             </c:forEach>
         </table>
 

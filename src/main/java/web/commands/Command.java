@@ -33,6 +33,7 @@ public abstract class Command
         commands.put("OrderCommand", new OrderCommand("orderpage", "customer"));
         commands.put("orderentries", new ShowOrdersCommand("showorderspage", "employee"));
         commands.put("showSVG",new showSVGCommand("showSVG"));
+        commands.put("inspectOrder", new InspectOrderCommand("inspectOrder","employee"));
 
     }
 

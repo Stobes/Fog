@@ -139,7 +139,7 @@ public class CalcCarport {
 
     public Result calcRoof(int width, int length, Result result) {
 
-        int amount = (int) ceil(length*1.025);
+        int amount = (int) ceil(length*0.014);
         result.setAmount(amount);
 
         int mesurment = width;

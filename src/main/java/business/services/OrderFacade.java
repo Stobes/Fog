@@ -7,14 +7,12 @@ import business.entities.OrderEntry;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
-import business.persistence.MaterialMapper;
 
 import java.util.List;
 
 public class OrderFacade {
 
     private OrderMapper orderMapper;
-    private MaterialMapper materialMapper;
 
     public OrderFacade(Database database) {
         this.orderMapper = new OrderMapper(database);
