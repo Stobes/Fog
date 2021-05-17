@@ -23,7 +23,7 @@ USE `fog_carport`;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fog_carport`.`material`
 (
-    `material_id`                   INT         NOT NULL,
+    `id`                   INT         NOT NULL,
     `unit`                 VARCHAR(45) NOT NULL,
     `material_description` VARCHAR(45) NOT NULL,
     `meter_price`          DOUBLE      NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `fog_carport`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fog_carport`.`order`
 (
-    `order_id`           INT         NOT NULL AUTO_INCREMENT,
+    `id`           INT         NOT NULL AUTO_INCREMENT,
     `width`        INT         NOT NULL,
     `length`       INT         NOT NULL,
     `height`       INT         NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `fog_carport`.`order`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `fog_carport`.`order_item`
 (
-    `order_item_id`                  INT         NOT NULL AUTO_INCREMENT,
+    `id`                  INT         NOT NULL AUTO_INCREMENT,
     `amount`              INT         NOT NULL,
     `length`              INT         NOT NULL,
     `context_description` VARCHAR(45) NOT NULL,
