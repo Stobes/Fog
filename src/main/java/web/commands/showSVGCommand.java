@@ -1,11 +1,13 @@
 package web.commands;
 
+import business.entities.OrderEntry;
 import business.exceptions.UserException;
 import business.services.OrderFacade;
 import business.services.SVG;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 public class showSVGCommand extends CommandUnprotectedPage {
 
@@ -20,38 +22,42 @@ public class showSVGCommand extends CommandUnprotectedPage {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
-
+        OrderEntry drawing = orderFacade.getOrderId();
         SVG svg = new SVG(0,0,"0 0 900 700",100,100);
         //svg.addSVG(svg);
 
-
         //Laver skur
-        svg.addRect(100,0,650.0,600.0);
+        svg.addCarport(100,0,drawing.getLength(),drawing.getWidth());
 
-        //Laver de stiplede linjer
-        svg.addLine(150,36,540,570);
-        svg.addLine(150,570,540,36);
 
-        //Laver spær
-        svg.addRect(100,30,650.0,6.0);
-        svg.addRect(100,570,650.0,6.0);
-
-        //Laver spær
-        for(int x = 0; x < 14; x++){
-            svg.addRect(100 + 50 * x,0,4,600.0);
+        //Laver spær vertikalt
+        for(int x = 0; x <= (drawing.getLength() / 55); x++){
+            svg.addSpær(100 + 55 * x,0,4,drawing.getWidth());
         }
 
-        //Laver de små fede firkanter
-        svg.addRect(197,28,10.0,10.0);
-        svg.addRect(197,568,10.0,10.0);
-        svg.addRect(422,28,10.0,10.0);
-        svg.addRect(422,568,10.0,10.0);
-        svg.addRect(540,28,10.0,10.0);
-        svg.addRect(540,568,10.0,10.0);
-        svg.addRect(722,28,10.0,10.0);
-        svg.addRect(722,568,10.0,10.0);
+        //laver spær horisontalt
+        svg.addSpær(100,30,drawing.getLength(),4);
+        svg.addSpær(100,drawing.getWidth() - 34,drawing.getLength(),4);
 
-        //svg.addRect(10,10,100,100);
+        //slut spær
+        svg.addSpær(drawing.getLength()+100,0,4, drawing.getWidth());
+
+        
+       //Laver stolper
+        for(int x = 0; x < (drawing.getLength() / 310); x++){
+            svg.addStolpe(200 + 310 * x,28,10,10);
+            svg.addStolpe(200 + 310 * x,drawing.getWidth()-38,10,10);
+        }
+
+       //Laver ende stolper
+        svg.addStolpe(drawing.getLength()+70,28,10, 10);
+        svg.addStolpe(drawing.getLength()+70,drawing.getWidth()-38,10,10);
+
+        //Laver de stiplede linjer
+        svg.addLine(100,30, drawing.getLength()+104, drawing.getWidth()-30);
+        svg.addLine(100,drawing.getWidth()-30,drawing.getLength()+104,30);
+
+
 
         request.setAttribute("SVG",svg.toString());
         return pageToShow;

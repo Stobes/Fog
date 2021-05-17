@@ -18,13 +18,15 @@ public class OrderMapper {
         this.database = database;
     }
 
-    public int getOrderId() throws UserException {
+    public OrderEntry getOrderId() throws UserException {
 
-        int orderId = 0;
+        OrderEntry orderId = new OrderEntry(1,1,1,1,"");
+
+
 
         try (Connection connection = database.connect())
         {
-            String sql = "SELECT MAX(id) FROM `fog_carport`.`order`;";
+            String sql = "SELECT * FROM `order` WHERE id = ( SELECT MAX( id ) FROM `order` );";
 
             try (PreparedStatement ps = connection.prepareStatement(sql))
             {
@@ -32,8 +34,13 @@ public class OrderMapper {
                 while (rs.next())
                 {
                     int id = rs.getInt(1);
+                    int width = rs.getInt("width");
+                    int length = rs.getInt("length");
 
-                    orderId = id;
+
+                    orderId.setId(id);
+                    orderId.setWidth(width);
+                    orderId.setLength(length);
 
                 }
             }

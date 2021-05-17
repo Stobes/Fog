@@ -30,7 +30,7 @@ public class OrderFacade {
 
     }
 
-    public int getOrderId() throws UserException {
+    public OrderEntry getOrderId() throws UserException {
 
         return orderMapper.getOrderId();
 

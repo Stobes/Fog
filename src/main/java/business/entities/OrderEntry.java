@@ -49,4 +49,20 @@ public class OrderEntry {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
 }
