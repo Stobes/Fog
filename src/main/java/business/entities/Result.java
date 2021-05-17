@@ -6,12 +6,7 @@ public class Result {
     private int amount;
     private String contextDescription;
 
-    public Result(int length, int amount, String contextDescription) {
-        this.length = length;
-        this.amount = amount;
-        this.contextDescription = contextDescription;
-
-    }
+    public Result() {}
 
     public int getLength() {
         return length;

@@ -75,7 +75,7 @@ public class CalcCarport {
         int mesurment = (int) round((length * excessMaterial / 2) / 10) * 10;
         result.setLength(mesurment);
 
-        String description = "understernbrædder til siderne";
+        String description = "Understernbrædder til siderne";
         result.setContextDescription(description);
 
         return result;
@@ -89,7 +89,7 @@ public class CalcCarport {
         int mesurment = (int) round((width*excessMaterial/2)/10)*10;
         result.setLength(mesurment);
 
-        String description = "oversternbrædder til forenden";
+        String description = "Oversternbrædder til forenden";
         result.setContextDescription(description);
 
         return result;
@@ -103,7 +103,35 @@ public class CalcCarport {
         int mesurment = (int) round((length*excessMaterial/2)/10)*10;
         result.setLength(mesurment);
 
-        String description = "oversternbrædder til siderne";
+        String description = "Oversternbrædder til siderne";
+        result.setContextDescription(description);
+
+        return result;
+    }
+
+    public Result calcWaterBoardsSides(int length, Result result) {
+
+        int amount = 4;
+        result.setAmount(amount);
+
+        int mesurment = (int) round((length * excessMaterial / 2) / 10) * 10;
+        result.setLength(mesurment);
+
+        String description = "Vandbrædt på stern i siderne";
+        result.setContextDescription(description);
+
+        return result;
+    }
+
+    public Result calcWaterBoardsFront(int width, Result result) {
+
+        int amount = 2;
+        result.setAmount(amount);
+
+        int mesurment = (int) round((width*excessMaterial/2)/10)*10;
+        result.setLength(mesurment);
+
+        String description = "Vandbrædt på stern i forenden";
         result.setContextDescription(description);
 
         return result;
@@ -111,13 +139,13 @@ public class CalcCarport {
 
     public Result calcRoof(int width, int length, Result result) {
 
-        int amount = (int) ceil(length*1.025);
+        int amount = (int) ceil(length*0.014);
         result.setAmount(amount);
 
         int mesurment = width;
         result.setLength(mesurment);
 
-        String description = "tagplader monteres på spær";
+        String description = "Tagplader monteres på spær";
         result.setContextDescription(description);
 
         return result;

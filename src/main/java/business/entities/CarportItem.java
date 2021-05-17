@@ -1,32 +1,48 @@
 package business.entities;
 
 public class CarportItem {
+
     private int length;
     private int amount;
-    private int price;
-    private String description;
+    private String contextDescription;
+    private int materialId;
 
-    public CarportItem(int length, int amount, int price, String description) {
+    public CarportItem( int length, int amount, String contextDescription, int materialId) {
+
         this.length = length;
         this.amount = amount;
-        this.price = price;
-        this.description = description;
+        this.contextDescription = contextDescription;
+        this.materialId = materialId;
     }
+
 
     public int getLength() {
         return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 
     public int getAmount() {
         return amount;
     }
 
-    public int getPrice() {
-        return price;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public String getDescription() {
-        return description;
+
+    public String getContextDescription() {
+        return contextDescription;
+    }
+
+    public void setContextDescription(String contextDescription) {
+        this.contextDescription = contextDescription;
+    }
+
+    public int getMaterialId() {
+        return materialId;
     }
 }
 
