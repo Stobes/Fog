@@ -40,9 +40,13 @@
                     ${requestScope.total} kr.
                 </td>
             </tr>
+
             </tbody>
 
         </table>
+
+        <br>
+        ${requestScope.SVG}
 
     </jsp:body>
 </t:genericpage>

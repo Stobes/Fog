@@ -8,6 +8,7 @@ import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 public class OrderFacade {
@@ -41,5 +42,9 @@ public class OrderFacade {
 
         orderMapper.insertOrderItem(_carportItemList, orderId);
 
+    }
+
+    public OrderEntry getOrderById(int id) throws UserException {
+        return orderMapper.getOrderById(id);
     }
 }

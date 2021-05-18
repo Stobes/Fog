@@ -35,6 +35,7 @@ public abstract class Command
         commands.put("showSVG",new showSVGCommand("showSVG"));
         commands.put("inspectOrder", new InspectOrderCommand("inspectOrder","employee"));
 
+
     }
 
     public static Command fromPath(

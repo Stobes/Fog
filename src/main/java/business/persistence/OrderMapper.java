@@ -166,4 +166,43 @@ public class OrderMapper {
             throw new UserException(ex.getMessage());
         }
     }
+    public OrderEntry getOrderById(int id) throws UserException {
+
+        OrderEntry orderId = new OrderEntry(1,1,1,1,"");
+
+
+
+        try (Connection connection = database.connect())
+        {
+            String sql = "SELECT * FROM `order` WHERE id = "+id+";";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql))
+            {
+                ResultSet rs = ps.executeQuery();
+                while (rs.next())
+                {
+                    int order_id = rs.getInt(1);
+                    int width = rs.getInt("width");
+                    int length = rs.getInt("length");
+
+
+                    orderId.setId(order_id);
+                    orderId.setWidth(width);
+                    orderId.setLength(length);
+
+                }
+            }
+            catch (SQLException ex)
+            {
+                throw new UserException(ex.getMessage());
+            }
+        }
+        catch (SQLException ex)
+        {
+            throw new UserException("Connection to database could not be established");
+        }
+
+        return orderId;
+    }
+
 }
