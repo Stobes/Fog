@@ -14,7 +14,7 @@ public class UserMapperTest {
     private final static String DATABASE = "FOG_Carport";  // Change this to your own database
     private final static String TESTDATABASE = DATABASE + "_test";
     private final static String USER = "root";
-    private final static String PASSWORD = "254736#47697234";
+    private final static String PASSWORD = "2290696-1329Seb";
     private final static String URL = "jdbc:mysql://localhost:3306/" + TESTDATABASE + "?serverTimezone=CET&useSSL=false";
 
     private static Database database;
@@ -84,4 +84,6 @@ public class UserMapperTest {
         User retrieved = userMapper.login( "king@kong.com", "uhahvorhemmeligt" );
         assertEquals( "konge", retrieved.getRole() );
     }
+
+
 }
