@@ -50,7 +50,7 @@ public class OrderFacade {
 
     }
 
-    public OrderEntry getOrderById(int id) throws UserException {
+    /*public OrderEntry getOrderById(int id) throws UserException {
         return orderMapper.getOrderById(id);
-    }
+    }*/
 }
