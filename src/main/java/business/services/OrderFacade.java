@@ -36,6 +36,12 @@ public class OrderFacade {
 
     }
 
+    public OrderEntry getOrderById(int id) throws UserException {
+
+        return orderMapper.getOrderById(id);
+
+    }
+
 
     public void insertOrderItem(List<CarportItem> _carportItemList, int orderId) throws UserException {
 
