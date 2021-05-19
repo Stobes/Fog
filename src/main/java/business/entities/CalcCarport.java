@@ -1,7 +1,5 @@
 package business.entities;
 
-import java.text.DecimalFormat;
-
 import static java.lang.Math.ceil;
 import static java.lang.Math.round;
 
@@ -29,11 +27,11 @@ public class CalcCarport {
     // calcRoof constants
     double roofAmountPrLength = 0.014;
 
-    private double roundSingleCentimeters(double mesure) {
+    protected double roundSingleCentimeters(double measure) {
 
-        mesure = (mesure/10)*10;
+        measure = (measure/10)*10;
 
-        return mesure;
+        return measure;
     }
 
 
