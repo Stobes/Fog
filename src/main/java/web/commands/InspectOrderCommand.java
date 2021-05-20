@@ -51,10 +51,11 @@ public class InspectOrderCommand extends CommandProtectedPage {
         }
 
         request.setAttribute("Inspect Order", id);
-
+        orderFacade.getOrderById(id);
         List<BOMItem> bomItemList = bomFacade.getBOMMaterials(id);
         int total = bomList.getTotalPrice(bomItemList);
 
+        request.setAttribute("orderId", id);
         request.setAttribute("BOMList", bomItemList);
         request.setAttribute("total", total);
 

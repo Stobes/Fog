@@ -37,20 +37,28 @@ public class OrderFacade {
 
     }
 
-    public OrderEntry getOrderById(int id) throws UserException {
-
-        return orderMapper.getOrderById(id);
-
-    }
-
-
     public void insertOrderItem(List<CarportItem> _carportItemList, int orderId) throws UserException {
 
         orderMapper.insertOrderItem(_carportItemList, orderId);
 
     }
 
-    /*public OrderEntry getOrderById(int id) throws UserException {
+    public OrderEntry getOrderById(int id) throws UserException {
         return orderMapper.getOrderById(id);
-    }*/
+
+    }
+
+    
+
+    public void SendOffer(int id, int total) throws UserException {
+        orderMapper.SendOffer(id, total);
+    }
+
+    public List<OrderEntry> getSpecificOrderEntries(int userId) throws UserException {
+        return orderMapper.getSpecificOrderEntries(userId);
+    }
+
+    public void replyToOffer(int id, String reply) throws UserException {
+        orderMapper.replyToOffer(id, reply);
+    }
 }

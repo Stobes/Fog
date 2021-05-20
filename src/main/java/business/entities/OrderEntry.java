@@ -6,6 +6,7 @@ public class OrderEntry {
     private int length;
     private int width;
     private int height;
+    private int price;
     private String status;
     private User user;
 
@@ -14,6 +15,7 @@ public class OrderEntry {
         this.length = length;
         this.width = width;
         this.height = height;
+
         this.status = status;
         this.user = null;
     }
@@ -64,5 +66,13 @@ public class OrderEntry {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
