@@ -21,58 +21,41 @@ public class OrderMapper {
 
     public OrderEntry getOrderById(int id) throws UserException {
 
-        OrderEntry orderId = new OrderEntry(1,1,1,1,"");
+        OrderEntry orderId = new OrderEntry(1, 1, 1, 1, "");
 
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM `order` WHERE id = " + id + ";";
 
-
-        try (Connection connection = database.connect())
-        {
-            String sql = "SELECT * FROM `order` WHERE id = "+id+";";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql))
-            {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
-                while (rs.next())
-                {
+                while (rs.next()) {
                     int order_id = rs.getInt(1);
                     int width = rs.getInt("width");
                     int length = rs.getInt("length");
 
-
                     orderId.setId(order_id);
                     orderId.setWidth(width);
                     orderId.setLength(length);
-
                 }
-            }
-            catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             throw new UserException("Connection to database could not be established");
         }
-
         return orderId;
     }
 
     public OrderEntry getOrderId() throws UserException {
 
-        OrderEntry orderId = new OrderEntry(1,1,1,1,"");
+        OrderEntry orderId = new OrderEntry(1, 1, 1, 1, "");
 
-
-
-        try (Connection connection = database.connect())
-        {
+        try (Connection connection = database.connect()) {
             String sql = "SELECT * FROM `order` WHERE id = ( SELECT MAX( id ) FROM `order` );";
 
-            try (PreparedStatement ps = connection.prepareStatement(sql))
-            {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
-                while (rs.next())
-                {
+                while (rs.next()) {
                     int id = rs.getInt(1);
                     int width = rs.getInt("width");
                     int length = rs.getInt("length");
@@ -83,37 +66,26 @@ public class OrderMapper {
                     orderId.setLength(length);
 
                 }
-            }
-            catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             throw new UserException("Connection to database could not be established");
         }
-
         return orderId;
     }
-
-
-
 
 
     public List<OrderEntry> getAllOrderEntries() throws UserException {
 
         List<OrderEntry> orderEntryList = new ArrayList<>();
 
-        try (Connection connection = database.connect())
-        {
+        try (Connection connection = database.connect()) {
             String sql = "SELECT * FROM `fog_carport`.`order`;";
 
-            try (PreparedStatement ps = connection.prepareStatement(sql))
-            {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
-                while (rs.next())
-                {
+                while (rs.next()) {
                     int id = rs.getInt("id");
                     int width = rs.getInt("width");
                     int length = rs.getInt("length");
@@ -124,14 +96,10 @@ public class OrderMapper {
                     orderEntryList.add(new OrderEntry(id, length, width, height, status));
 
                 }
-            }
-            catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             throw new UserException("Connection to database could not be established");
         }
 
@@ -143,12 +111,10 @@ public class OrderMapper {
 
         int orderId = 0;
 
-        try (Connection connection = database.connect())
-        {
+        try (Connection connection = database.connect()) {
             String sql = "INSERT INTO `fog_carport`.`order` (`width`, `length`, `height`, `status`, `users_id`) VALUES (?, ?, ?, ?, ?);";
 
-            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
-            {
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, width);
                 ps.setInt(2, length);
                 ps.setInt(3, height);
@@ -160,14 +126,10 @@ public class OrderMapper {
                 int order_id = ids.getInt(1);
 
                 orderId = order_id;
-            }
-            catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             throw new UserException(ex.getMessage());
         }
         return orderId;
@@ -175,12 +137,10 @@ public class OrderMapper {
 
     public void insertOrderItem(List<CarportItem> carportItemList, int orderId) throws UserException {
 
-        try (Connection connection = database.connect())
-        {
+        try (Connection connection = database.connect()) {
             String sql = "INSERT INTO `fog_carport`.`order_item` (`amount`, `length`, `context_description`, `order_id`, `material_id`) VALUES (?, ?, ?, ?, ?);";
 
-            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
-            {
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 for (CarportItem carportItem : carportItemList) {
 
                     ps.setInt(1, carportItem.getAmount());
@@ -195,54 +155,79 @@ public class OrderMapper {
 
                 }
 
-            }
-            catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             throw new UserException(ex.getMessage());
         }
     }
-    public OrderEntry getOrderById(int id) throws UserException {
 
-        OrderEntry orderId = new OrderEntry(1,1,1,1,"");
+    public void SendOffer(int id, int total) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "UPDATE `order` \n" +
+                    "SET `status` = \"awaiting confirmation\",\n" +
+                    "retail_price = "+total+"\n" +
+                    "where `order`.id = "+id+";";
 
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
 
+            }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+    }
 
-        try (Connection connection = database.connect())
-        {
-            String sql = "SELECT * FROM `order` WHERE id = "+id+";";
+    public List<OrderEntry> getSpecificOrderEntries(int userId) throws UserException {
 
-            try (PreparedStatement ps = connection.prepareStatement(sql))
-            {
+        List<OrderEntry> customerOrderList = new ArrayList<>();
+
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM `order` \n" +
+                    "WHERE `status` = \"awaiting confirmation\"\n" +
+                    "AND users_id = "+userId+";";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
-                while (rs.next())
-                {
-                    int order_id = rs.getInt(1);
+                while (rs.next()) {
+                    int id = rs.getInt("id");
                     int width = rs.getInt("width");
                     int length = rs.getInt("length");
+                    int height = rs.getInt("height");
+                    int price = rs.getInt("retail_price");
+                    String status = rs.getString("status");
 
+                    customerOrderList.add(new OrderEntry(id, length, width, height, status));
+                    customerOrderList.get(customerOrderList.size()-1).setPrice(price);
 
-                    orderId.setId(order_id);
-                    orderId.setWidth(width);
-                    orderId.setLength(length);
 
                 }
-            }
-            catch (SQLException ex)
-            {
+            } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             throw new UserException("Connection to database could not be established");
         }
 
-        return orderId;
+        return customerOrderList;
     }
 
+    public void replyToOffer(int id, String reply) throws UserException {
+
+        try (Connection connection = database.connect()) {
+            try (PreparedStatement ps = connection.prepareStatement("UPDATE `order` SET status=? WHERE id=?")) {
+                ps.setString(1, reply);
+                ps.setInt(2,id);
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+
+            }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+    }
 }

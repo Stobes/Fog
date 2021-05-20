@@ -27,6 +27,7 @@ public abstract class Command
         commands.put("registerpage", new CommandUnprotectedPage("registerpage"));
         commands.put("registercommand", new RegisterCommand("registerpage"));
         commands.put("customerpage", new CommandProtectedPage("customerpage", "customer"));
+        commands.put("showCustomersorders", new ShowCustomerOrdersCommand("showCustomerOrderPage", "customer"));
         commands.put("employeepage", new CommandProtectedPage("employeepage", "employee"));
         commands.put("orderpage", new CommandUnprotectedPage("orderpage"));
         commands.put("aboutPage",new CommandUnprotectedPage("aboutPage"));
@@ -34,6 +35,8 @@ public abstract class Command
         commands.put("orderentries", new ShowOrdersCommand("showorderspage", "employee"));
         commands.put("showSVG",new showSVGCommand("showSVG"));
         commands.put("inspectOrder", new InspectOrderCommand("inspectOrder","employee"));
+        commands.put("sendOffer", new SendOfferCommand("index","employee"));
+        commands.put("offerReply", new CustomerReplyCommand("index", "customer"));
 
 
     }

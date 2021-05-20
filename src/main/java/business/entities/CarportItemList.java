@@ -12,9 +12,6 @@ public class CarportItemList extends CalcCarport{
         return carportItemList;
     }
 
-    public void addToCart(CarportItem carportItem) { carportItemList.add(carportItem); }
-
-
     public List<CarportItem> assembleList(int length, int width, int height, List<Material> materialList, List<CarportItem> carportItemList) {
 
         Result result = new Result();

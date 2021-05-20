@@ -44,6 +44,12 @@
             </tbody>
 
         </table>
+        <br/>
+        <form method="post" action="${pageContext.request.contextPath}/fc/sendOffer">
+            <input type="hidden" name="orderId" value="${requestScope.orderId}">
+            <button name="total" type="submit" value="${requestScope.total}">Send Offer</button>
+
+        </form>
 
         <br>
         ${requestScope.SVG}

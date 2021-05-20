@@ -44,8 +44,9 @@ public class CalcCarport {
         int amount;
         if(length <= postDist) {
             amount = defaultPostAmount;
+            result.setAmount(amount);
         } else {
-            amount = (int) ceil((length/postDist)) * 2;
+            amount = (int) (ceil((double)length/postDist)) * 2;
             result.setAmount(amount);
         }
 
