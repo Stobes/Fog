@@ -1,14 +1,10 @@
 package business.services;
 
 import business.entities.CarportItem;
-import business.entities.CarportItemList;
-import business.entities.Material;
 import business.entities.OrderEntry;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
-
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 public class OrderFacade {
@@ -47,8 +43,6 @@ public class OrderFacade {
         return orderMapper.getOrderById(id);
 
     }
-
-    
 
     public void SendOffer(int id, int total) throws UserException {
         orderMapper.SendOffer(id, total);

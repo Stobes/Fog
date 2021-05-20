@@ -9,8 +9,8 @@
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        This is a list of all Order requests:
+        <h1>Velkommen ${sessionScope.email} </h1>
+        Dette er en liste over alle ordreforespørgsler:
 
         <table class="table table-bordered">
             <thead>
@@ -47,7 +47,7 @@
         <br/>
         <form method="post" action="${pageContext.request.contextPath}/fc/sendOffer">
             <input type="hidden" name="orderId" value="${requestScope.orderId}">
-            <button name="total" type="submit" value="${requestScope.total}">Send Offer</button>
+            <button name="total" type="submit" value="${requestScope.total}">Send tilbud</button>
 
         </form>
 

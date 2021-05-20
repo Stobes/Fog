@@ -14,7 +14,7 @@
 
     <jsp:body>
         <div>
-        <p>Her indsættes en tegning:</p>
+        <p>Her ses din carport:</p>
             ${requestScope.SVG}
         </div>
 

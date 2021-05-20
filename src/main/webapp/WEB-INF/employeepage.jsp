@@ -9,9 +9,9 @@
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        <P>You are now logged in as a EMPLOYEE of our FOG Carport site.</P>
+        <h1>Velkommen ${sessionScope.email} </h1>
+        <P>Du er nu logget ind som en medarbejder hos FOG Carport.</P>
 
-        <p><a href="${pageContext.request.contextPath}/fc/orderentries">Gå til visning af alle Order forespørgelser</a></p>
+        <p><a href="${pageContext.request.contextPath}/fc/orderentries">Gå til visning af alle ordreforespørgsler</a></p>
     </jsp:body>
 </t:genericpage>

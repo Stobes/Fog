@@ -28,21 +28,21 @@
     </div>
     <nav class="my-2 my-md-0 me-md-3 text-white">
         <c:if test="${addHomeLink == null }">
-            <a class="p-2 text-white" href="<%=request.getContextPath()%>">Home</a>
+            <a class="p-2 text-white" href="<%=request.getContextPath()%>">Hjem</a>
         </c:if>
         <c:if test="${sessionScope.role == 'employee' }">
-            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/orderentries">Orders</a>
+            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/orderentries">Ordre</a>
         </c:if>
         <c:if test="${sessionScope.role == 'customer' }">
-            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/customerpage">Profile</a>
+            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/customerpage">Profil</a>
         </c:if>
         <c:if test="${sessionScope.role == 'customer' }">
-            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/showCustomersorders">Orders</a>
+            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/showCustomersorders">Ordre</a>
         </c:if>
         <c:if test="${sessionScope.role == 'employee' }">
-            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/employeepage">Profile</a>
+            <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/employeepage">Profil</a>
         </c:if>
-        <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/aboutPage">About</a>
+        <a class="p-2 text-white" href="${pageContext.request.contextPath}/fc/aboutPage">Om os</a>
         <c:if test="${sessionScope.user != null }">
             <a class="p-2 text-white">${sessionScope.user.email}</a>
         </c:if>
@@ -56,14 +56,14 @@
 
         <c:if test="${isNotLoginPage && isNotRegisterPage}">
             <c:if test="${sessionScope.user != null }">
-                <a type="button" class="btn btn-sm"
-                href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+                <a type="button" class="btn btn-sm" style="color: black; background-color: white"
+                href="${pageContext.request.contextPath}/fc/logoutcommand">Log ud</a>
             </c:if>
             <c:if test="${sessionScope.user == null }">
-                <a type="button" class="btn btn-sm"
-                   href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
-                <a type="button" class="btn btn-sm"
-                   href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+                <a type="button" class="btn btn-sm" style="color: black; background-color: white"
+                   href="${pageContext.request.contextPath}/fc/loginpage">Log ind</a>
+                <a type="button" class="btn btn-sm" style="color: black; background-color: white"
+                   href="${pageContext.request.contextPath}/fc/registerpage">Opret bruger</a>
             </c:if>
         </c:if>
     </div>

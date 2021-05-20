@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 public class Database
 {
-    private Connection connection;
     private final String USER;
     private final String PASSWORD;
     private final String URL;

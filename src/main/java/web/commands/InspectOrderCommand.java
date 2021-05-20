@@ -29,20 +29,20 @@ public class InspectOrderCommand extends CommandProtectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
 
         int id = 0;
-        int startMål = 100;
-        int startMålMedMeter = 200;
-        int stolpedimensioner = 10;
-        int stolpeTillægsKordinatX = 70;
-        int stolpeAfstand = 310;
-        int øvreStolpeYKordinat = 28;
-        int nedreStolpeYKordinat = 38;
-        int yLineForskel = 30 ;
-        int xLineforskel = 104;
-        int nedreYSpær = 34;
-        int øvreYspær = 30;
-        int spærHøjde = 4;
-        int spærAfstand = 55;
-        int spærBredde = 4;
+        int startMeasurement = 100;
+        int startMeasurementInMeters = 200;
+        int postDimensions = 10;
+        int postCoordinateX = 70;
+        int postSpacing = 310;
+        int upperPostCoordinateY = 28;
+        int lowerPostCoordinateY = 38;
+        int yLineDifference = 30 ;
+        int xLineDifference = 104;
+        int lowerYRafter = 34;
+        int upperYRafter = 30;
+        int rafterHeight = 4;
+        int rafterSpacing = 55;
+        int rafterWidth = 4;
         try {
             id = Integer.parseInt(request.getParameter("Inspect Order"));
         } catch (NumberFormatException exception) {
@@ -65,17 +65,17 @@ public class InspectOrderCommand extends CommandProtectedPage {
 
 
         //Laver skur
-        svg.addCarport(startMål,0,drawing.getLength(),drawing.getWidth());
+        svg.addCarport(startMeasurement,0,drawing.getLength(),drawing.getWidth());
 
 
         //Laver spær vertikalt
-        for(int x = 0; x <= (drawing.getLength() / spærAfstand); x++){
-            svg.addSpær(startMål + spærAfstand * x,0,spærBredde,drawing.getWidth());
+        for(int x = 0; x <= (drawing.getLength() / rafterSpacing); x++){
+            svg.addRafters(startMeasurement + rafterSpacing * x,0,rafterWidth,drawing.getWidth());
         }
 
         //laver spær horisontalt
-        svg.addSpær(startMål,øvreYspær,drawing.getLength(),spærHøjde);
-        svg.addSpær(startMål,drawing.getWidth() - nedreYSpær,drawing.getLength(),spærHøjde);
+        svg.addRafters(startMeasurement,upperYRafter,drawing.getLength(),rafterHeight);
+        svg.addRafters(startMeasurement,drawing.getWidth() - lowerYRafter,drawing.getLength(),rafterHeight);
 
         //slut spær
         //svg.addSpær(drawing.getLength()+100,0,4, drawing.getWidth());
@@ -83,25 +83,25 @@ public class InspectOrderCommand extends CommandProtectedPage {
 
         //Laver stolper
 
-        if(drawing.getLength() - 130 < stolpeAfstand){
-            svg.addStolpe(startMålMedMeter,øvreStolpeYKordinat,stolpedimensioner,stolpedimensioner);
-            svg.addStolpe(startMålMedMeter ,drawing.getWidth()-nedreStolpeYKordinat,stolpedimensioner,stolpedimensioner);
+        if(drawing.getLength() - 130 < postSpacing){
+            svg.addPosts(startMeasurementInMeters,upperPostCoordinateY,postDimensions,postDimensions);
+            svg.addPosts(startMeasurementInMeters ,drawing.getWidth()-lowerPostCoordinateY,postDimensions,postDimensions);
         } else {
 
-            for (int x = 0; x < (drawing.getLength() / stolpeAfstand); x++) {
-                svg.addStolpe(startMålMedMeter + stolpeAfstand * x, øvreStolpeYKordinat, stolpedimensioner, stolpedimensioner);
-                svg.addStolpe(startMålMedMeter + stolpeAfstand * x, drawing.getWidth() - nedreStolpeYKordinat, stolpedimensioner, stolpedimensioner);
+            for (int x = 0; x < (drawing.getLength() / postSpacing); x++) {
+                svg.addPosts(startMeasurementInMeters + postSpacing * x, upperPostCoordinateY, postDimensions, postDimensions);
+                svg.addPosts(startMeasurementInMeters + postSpacing * x, drawing.getWidth() - lowerPostCoordinateY, postDimensions, postDimensions);
 
             }
         }
 
         //Laver ende stolper
-        svg.addStolpe(drawing.getLength()+stolpeTillægsKordinatX,øvreStolpeYKordinat,stolpedimensioner, stolpedimensioner);
-        svg.addStolpe(drawing.getLength()+stolpeTillægsKordinatX,drawing.getWidth()-nedreStolpeYKordinat,stolpedimensioner,stolpedimensioner);
+        svg.addPosts(drawing.getLength()+postCoordinateX,upperPostCoordinateY,postDimensions, postDimensions);
+        svg.addPosts(drawing.getLength()+postCoordinateX,drawing.getWidth()-lowerPostCoordinateY,postDimensions,postDimensions);
 
         //Laver de stiplede linjer
-        svg.addLine(startMål, yLineForskel, drawing.getLength()+xLineforskel, drawing.getWidth()-yLineForskel);
-        svg.addLine(startMål,drawing.getWidth()-yLineForskel,drawing.getLength()+xLineforskel,yLineForskel);
+        svg.addLine(startMeasurement, yLineDifference, drawing.getLength()+xLineDifference, drawing.getWidth()-yLineDifference);
+        svg.addLine(startMeasurement,drawing.getWidth()-yLineDifference,drawing.getLength()+xLineDifference,yLineDifference);
 
 
 

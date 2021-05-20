@@ -48,8 +48,8 @@ public class CalcCarport {
             result.setAmount(amount);
         }
 
-        int mesurment = height + postburied;
-        result.setLength(mesurment);
+        int measurement = height + postburied;
+        result.setLength(measurement);
 
         String description = "Stolper nedgraves 90 cm. i jord";
         result.setContextDescription(description);
@@ -62,8 +62,8 @@ public class CalcCarport {
         int amount = beamsTotal;
         result.setAmount(amount);
 
-        int mesurement = length;
-        result.setLength(mesurement);
+        int measurement = length;
+        result.setLength(measurement);
 
         String description = "Remme i sider, sadles ned i stolper";
         result.setContextDescription(description);
@@ -76,8 +76,8 @@ public class CalcCarport {
         int amount = (int) ceil(length/rafterDist);
         result.setAmount(amount);
 
-        int mesurment = width;
-        result.setLength(mesurment);
+        int measurement = width;
+        result.setLength(measurement);
 
         String description = "Spær monteres på rem";
         result.setContextDescription(description);
@@ -90,8 +90,8 @@ public class CalcCarport {
         int amount = sternAmountSidesAndFAB;
         result.setAmount(amount);
 
-        int mesurment = (int) round(roundSingleCentimeters(width*excessMaterial/sternDivisor));
-        result.setLength(mesurment);
+        int measurement = (int) round(roundSingleCentimeters(width*excessMaterial/sternDivisor));
+        result.setLength(measurement);
 
         String description = "Understernbrædder til for & bag ende";
         result.setContextDescription(description);
@@ -104,8 +104,8 @@ public class CalcCarport {
         int amount = sternAmountSidesAndFAB;
         result.setAmount(amount);
 
-        int mesurment = (int) round(roundSingleCentimeters(length * excessMaterial / sternDivisor));
-        result.setLength(mesurment);
+        int measurement = (int) round(roundSingleCentimeters(length * excessMaterial / sternDivisor));
+        result.setLength(measurement);
 
         String description = "Understernbrædder til siderne";
         result.setContextDescription(description);
@@ -118,8 +118,8 @@ public class CalcCarport {
         int amount = sternAmountFront;
         result.setAmount(amount);
 
-        int mesurment = (int) round(roundSingleCentimeters(width*excessMaterial/sternDivisor));
-        result.setLength(mesurment);
+        int measurement = (int) round(roundSingleCentimeters(width*excessMaterial/sternDivisor));
+        result.setLength(measurement);
 
         String description = "Oversternbrædder til forenden";
         result.setContextDescription(description);
@@ -132,8 +132,8 @@ public class CalcCarport {
         int amount = sternAmountSidesAndFAB;
         result.setAmount(amount);
 
-        int mesurment = (int) round(roundSingleCentimeters(length*excessMaterial/sternDivisor));
-        result.setLength(mesurment);
+        int measurement = (int) round(roundSingleCentimeters(length*excessMaterial/sternDivisor));
+        result.setLength(measurement);
 
         String description = "Oversternbrædder til siderne";
         result.setContextDescription(description);
@@ -146,8 +146,8 @@ public class CalcCarport {
         int amount = sternAmountSidesAndFAB;
         result.setAmount(amount);
 
-        int mesurment = (int) round(roundSingleCentimeters(length * excessMaterial / sternDivisor));
-        result.setLength(mesurment);
+        int measurement = (int) round(roundSingleCentimeters(length * excessMaterial / sternDivisor));
+        result.setLength(measurement);
 
         String description = "Vandbrædt på stern i siderne";
         result.setContextDescription(description);
@@ -160,8 +160,8 @@ public class CalcCarport {
         int amount = sternAmountFront;
         result.setAmount(amount);
 
-        int mesurment = (int) round(roundSingleCentimeters(width*excessMaterial/sternDivisor));
-        result.setLength(mesurment);
+        int measurement = (int) round(roundSingleCentimeters(width*excessMaterial/sternDivisor));
+        result.setLength(measurement);
 
         String description = "Vandbrædt på stern i forenden";
         result.setContextDescription(description);
@@ -174,8 +174,8 @@ public class CalcCarport {
         int amount = (int) ceil(length*roofAmountPrLength);
         result.setAmount(amount);
 
-        int mesurment = width;
-        result.setLength(mesurment);
+        int measurement = width;
+        result.setLength(measurement);
 
         String description = "Tagplader monteres på spær";
         result.setContextDescription(description);

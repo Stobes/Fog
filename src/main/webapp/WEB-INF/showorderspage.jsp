@@ -9,15 +9,15 @@
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        This is a list of all Order requests:
+        <h1>Velkommen ${sessionScope.email} </h1>
+        Dette er en liste over alle ordreforespørgsler:
 
         <table>
             <thead>
             <th>Id</th>
             <th>Højde</th>
             <th>Længde</th>
-            <th>Bredte</th>
+            <th>Bredde</th>
             <th>Status</th>
             </thead>
             <c:forEach var="orderEntry" items="${requestScope.orderEntryList}">
@@ -28,7 +28,7 @@
                         <td>${orderEntry.length}</td>
                         <td>${orderEntry.width}</td>
                         <td>${orderEntry.status}</td>
-                        <td><button name="Inspect Order" type="submit" value="${orderEntry.id}">Inspect Order</button></td>
+                        <td><button name="Inspect Order" type="submit" value="${orderEntry.id}">Inspicer ordre</button></td>
                     </form>
                 </tr>
             </c:forEach>

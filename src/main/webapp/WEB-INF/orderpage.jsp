@@ -53,7 +53,6 @@
                         <c:if test="${sessionScope.role == 'customer' }">
                     <p style="font-size: larger">En medarbejder vil verificere din forespørgsel hurtigst muligt <br/><br/>
                         Når din foresprøgsel er blevet godkendt, vil du få tilsendt et tilbud på mail</p>
-                    <p><a href="customerpage">Customer Page</a>
                         </c:if>
 
 

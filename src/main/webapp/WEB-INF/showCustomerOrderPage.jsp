@@ -11,23 +11,23 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-        <h2>Here is a list of your offers.</h2> <br/>
-        <h3>Press accept to confirm purchase of your carport or press Decline to refuse offer.</h3>
+        <h2>Her er en liste med dine tilbud.</h2> <br/>
+        <h3>Tryk accepter for at bekræfte dit køb af carport, eller tryk afvis for at takke nej til tilbuddet.</h3>
     </jsp:attribute>
     <jsp:attribute name="footer">
 
     </jsp:attribute>
     <jsp:body>
         <div>
-            Here is a list of your offers.
-            Press accept to confirm purchase of your carport or press Decline to refuse offer.
+            Her er en liste med dine tilbud.
+            Tryk accepter for at bekræfte dit køb af carport, eller tryk afvis for at takke nej til tilbuddet..
         </div>
         <table class="table">
             <thead>
             <th scope="col">Id</th>
             <th scope="col">Højde</th>
             <th scope="col">Længde</th>
-            <th scope="col">Bredte</th>
+            <th scope="col">Bredde</th>
             <th scope="col">Status</th>
             <th scope="col">Pris</th>
             </thead>
@@ -40,8 +40,8 @@
                         <td>${orderEntry.width}</td>
                         <td>${orderEntry.status}</td>
                         <td>${orderEntry.price}</td>
-                        <td><button name="reply" type="submit" value="Accept">Accept Offer</button></td>
-                        <td><button name="reply" type="submit" value="Decline">Decline Offer</button></td>
+                        <td><button name="reply" type="submit" value="Accept">Accepter tilbud</button></td>
+                        <td><button name="reply" type="submit" value="Decline">Afvis tilbud</button></td>
                         <input type="hidden" name="orderID" value="${orderEntry.id}">
                     </form>
                 </tr>
