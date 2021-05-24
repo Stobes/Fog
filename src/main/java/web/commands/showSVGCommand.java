@@ -23,7 +23,7 @@ public class showSVGCommand extends CommandUnprotectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         OrderEntry drawing = orderFacade.getOrderId();
-        SVG svg = new SVG(0,0,"0 0 900 700",100,100);
+        SVG svg = new SVG(0,0,"0 0 1000 800",100,100);
 
         int startMeasurement = 100;
         int startMeasurementInMeters = 200;

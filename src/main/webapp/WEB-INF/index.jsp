@@ -17,6 +17,7 @@
                 <h1> Velkommen til Fog Quickbyg </h1>
                 <h2> Vi gør dine carport drømme til virkelighed </h2>
                 <p> Log venligst ind eller opret en bruger for at kunne bestille tilbud</p>
+                <img src="https://mediacache.davidsen.as/v-637361749307347739/af/f4/a3d3-fb5a-49b9-aac2-78b0d5882f7b/41619003511_1_0653daa7-df39-4656-8afe-b829b6ac936a.jpg" alt="Carportbillede" width="523" height="523"/>
 
             </div>
     </jsp:body>

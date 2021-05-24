@@ -16,7 +16,7 @@ class OrderMapperTest {
     private final static String TESTDATABASE = DATABASE + "_test";
     private final static String USER = "root";
 
-    private final static String PASSWORD = "Invigorat4";
+    private final static String PASSWORD = "290696-1329Seb";
 
     private final static String URL = "jdbc:mysql://localhost:3306/" + TESTDATABASE + "?serverTimezone=CET&useSSL=false";
 
